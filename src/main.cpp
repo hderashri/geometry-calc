@@ -2,10 +2,12 @@
 #include "Utils/ShapeSelector.h"
 #include "Operations/Point3DDistanceCalculator.h"
 #include "Operations/TriangleAreaCalculator.h"
-#include "Operations/CircleAreaCalculator.h"
+#include "Operations/SphereVolumeCalculator.h"
+#include "Operations/QuardilateralAreaCalculator.h"
+#include "Operations/PyramidVolumeCalculator.h"
 
 int main() {
-    std::cout << "Select a shape (Point3D, Triangle, Circle): ";
+    std::cout << "Select a shape (Point3D, Triangle, Quardilateral, Sphere, Pyramid): ";
     std::string input;
     std::getline(std::cin, input);
 
@@ -22,9 +24,19 @@ int main() {
             areaCalc.execute();
             break;
         }
-        case ShapeType::Circle: {
-            CircleAreaCalculator circleAreaCalc;
-            circleAreaCalc.execute();
+        case ShapeType::Sphere: {
+            SphereVolumeCalculator sphereVolumneCalc;
+            sphereVolumneCalc.execute();
+            break;
+        }
+        case ShapeType::Quardilateral: {
+            QuardilateralAreaCalculator quardilateralAreaCalc;
+            quardilateralAreaCalc.execute();
+            break;
+        }
+        case ShapeType::Pyramid: {
+            PyramidVolumeCalculator pyramidVolumeCalc;
+            pyramidVolumeCalc.execute();
             break;
         }
         default:
