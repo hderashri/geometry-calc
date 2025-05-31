@@ -5,32 +5,6 @@
 #include "Vector.h"
 #include <vector>
 
-
-inline bool isOnPlane(const std::vector<Point3D>& points) {
-        if (points.size() < 3) {
-            return true;
-        }
-
-        Vector normal;
-
-        for(int i = 0; i < points.size() - 2; i++) {      
-                Vector v1 = points[i+1] - points[i];
-                Vector v2 = points[i+2] - points[i];
-                normal = v1.cross(v2);
-                if (normal.magnitude(normal) > 1e-6) {
-                    break;
-                }
-        }
-        
-       for(int i = 3; i < points.size(); i++) {         
-            if (std::abs((points[i] - points[0]).dot(normal)) > 1e-6) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    
 class Point3D : public IShape {
 private:
     double x, y, z;
@@ -78,5 +52,29 @@ public:
 
     
 };
+
+inline bool isOnPlane(const std::vector<Point3D>& points) {
+        if (points.size() < 3) {
+            return true;
+        }
+
+        Vector normal;
+
+        for(int i = 0; i < points.size() - 2; i++) {      
+                Vector v1 = points[i+1] - points[i];
+                Vector v2 = points[i+2] - points[i];
+                normal = v1.cross(v2);
+                if (normal.magnitude(normal) > 1e-6) {
+                    break;
+                }
+        }
+        
+       for(int i = 3; i < points.size(); i++) {         
+            if (std::abs((points[i] - points[0]).dot(normal)) > 1e-6) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 #endif

@@ -8,7 +8,7 @@ enum class ShapeType {
     Point3D,
     Triangle,
     Sphere,
-    Quardilateral,
+    Quadrilateral,
     Pyramid,
     Invalid
 };

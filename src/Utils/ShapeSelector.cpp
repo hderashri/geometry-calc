@@ -7,7 +7,7 @@ ShapeType ShapeSelector::selectShape(const std::string& input) {
 
     if (lowerInput == "point3d") return ShapeType::Point3D;
     if (lowerInput == "triangle") return ShapeType::Triangle;
-    if (lowerInput == "quardilateral") return ShapeType::Quardilateral;
+    if (lowerInput == "quadrilateral") return ShapeType::Quadrilateral;
     if (lowerInput == "sphere") return ShapeType::Sphere;
     if (lowerInput == "pyramid") return ShapeType::Pyramid;
 
@@ -19,7 +19,7 @@ std::string ShapeSelector::toString(ShapeType shape) {
         case ShapeType::Point3D: return "Point3D";
         case ShapeType::Triangle: return "Triangle";
         case ShapeType::Sphere: return "Sphere";
-        case ShapeType::Quardilateral: return "Quardilateral";
+        case ShapeType::Quadrilateral: return "Quadrilateral";
         case ShapeType::Pyramid: return "Pyramid";
         default: return "Invalid";
     }

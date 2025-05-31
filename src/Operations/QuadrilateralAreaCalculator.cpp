@@ -1,19 +1,19 @@
-#include "QuardilateralAreaCalculator.h"
+#include "QuadrilateralAreaCalculator.h"
 #include "../Utils/IOHelper.h"
 #include "../DataTypes/Vector.h"
 #include <iostream>
 #include <cmath>
 
-Vector QuardilateralAreaCalculator::calculateArea(const Quardilateral& quardilateral) {
-    if (!quardilateral.isValid()) {
+Vector QuadrilateralAreaCalculator::calculateArea(const Quadrilateral& quadrilateral) {
+    if (!quadrilateral.isValid()) {
         std::cerr << "Invalid quadrilateral. Ensure points are distinct and coplanar.\n";
         return Vector(0, 0, 0);
     }
 
-    auto p1 = quardilateral.getP1();
-    auto p2 = quardilateral.getP2();
-    auto p3 = quardilateral.getP3();
-    auto p4 = quardilateral.getP4();
+    auto p1 = quadrilateral.getP1();
+    auto p2 = quadrilateral.getP2();
+    auto p3 = quadrilateral.getP3();
+    auto p4 = quadrilateral.getP4();
 
     auto cx = (p1.getX() + p2.getX() + p3.getX() + p4.getX()) / 4;
     auto cy = (p1.getY() + p2.getY() + p3.getY() + p4.getY()) / 4;
@@ -49,12 +49,12 @@ Vector QuardilateralAreaCalculator::calculateArea(const Quardilateral& quardilat
 }
 
 
-void QuardilateralAreaCalculator::execute() {
-    std::cout << "\n--- Quardilateral Area Calculator ---\n";
-    Quardilateral quardilateral;
-    quardilateral.input();
+void QuadrilateralAreaCalculator::execute() {
+    std::cout << "\n--- Quadrilateral Area Calculator ---\n";
+    Quadrilateral quadrilateral;
+    quadrilateral.input();
 
-    auto area = calculateArea(quardilateral);
-    std::cout << "Directional area of the quardilateral is: " << "(" << area.getX() << ", " << area.getY() << ", " << area.getZ() << ")" "\n";
-    std::cout << "Area magnitude of the quardilateral is: " << area.magnitude(area) << "\n";
+    auto area = calculateArea(quadrilateral);
+    std::cout << "Directional area of the quadrilateral is: " << "(" << area.getX() << ", " << area.getY() << ", " << area.getZ() << ")" "\n";
+    std::cout << "Area magnitude of the quadrilateral is: " << area.magnitude(area) << "\n";
 }

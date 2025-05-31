@@ -3,11 +3,11 @@
 #include "Operations/Point3DDistanceCalculator.h"
 #include "Operations/TriangleAreaCalculator.h"
 #include "Operations/SphereVolumeCalculator.h"
-#include "Operations/QuardilateralAreaCalculator.h"
+#include "Operations/QuadrilateralAreaCalculator.h"
 #include "Operations/PyramidVolumeCalculator.h"
 
 int main() {
-    std::cout << "Select a shape (Point3D, Triangle, Quardilateral, Sphere, Pyramid): ";
+    std::cout << "Select a shape (Point3D, Triangle, Quadrilateral, Sphere, Pyramid): ";
     std::string input;
     std::getline(std::cin, input);
 
@@ -29,9 +29,9 @@ int main() {
             sphereVolumneCalc.execute();
             break;
         }
-        case ShapeType::Quardilateral: {
-            QuardilateralAreaCalculator quardilateralAreaCalc;
-            quardilateralAreaCalc.execute();
+        case ShapeType::Quadrilateral: {
+            QuadrilateralAreaCalculator quadrilateralAreaCalc;
+            quadrilateralAreaCalc.execute();
             break;
         }
         case ShapeType::Pyramid: {
