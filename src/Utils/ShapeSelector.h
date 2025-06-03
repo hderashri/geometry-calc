@@ -15,11 +15,9 @@ enum class ShapeType {
 
 class ShapeSelector {
 public:
-    // Converts string input to ShapeType enum
     static ShapeType selectShape(const std::string& input);
 
-    // Converts enum to string for display
     static std::string toString(ShapeType shape);
 };
 
-#endif // SHAPESELECTOR_H
+#endif 

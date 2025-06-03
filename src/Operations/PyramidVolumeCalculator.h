@@ -7,7 +7,7 @@
 
 class PyramidVolumeCalculator : public IOperation {
 public:
-    void execute() override;
+    void execute();
     double calculateVolume(const Pyramid& pyramid);
 };
 

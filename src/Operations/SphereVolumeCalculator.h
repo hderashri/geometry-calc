@@ -7,7 +7,7 @@
 
 class SphereVolumeCalculator : public IOperation {
 public:
-    void execute() override;
+    void execute();
     double calculateVolume(const Sphere& sphere);
 };
 

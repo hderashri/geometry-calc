@@ -40,11 +40,9 @@ Vector QuadrilateralAreaCalculator::calculateArea(const Quadrilateral& quadrilat
         return std::atan2(a.getY(), a.getX()) < std::atan2(b.getY(), b.getX());
     });
 
-    // Compute vector area from two triangles: (0,1,2) and (0,2,3)
     Vector A1 = (projected[1] - projected[0]).cross(projected[2] - projected[0]);
     Vector A2 = (projected[2] - projected[0]).cross(projected[3] - projected[0]);
 
-    // Total vector area is half of each triangle's cross product sum
     return (A1 + A2) * 0.5;
 }
 

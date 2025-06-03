@@ -9,8 +9,8 @@ private:
     Point3D p1, p2;
 
 public:
-    void execute() override;
+    void execute();
     double calculateDistance(const Point3D& a, const Point3D& b);
 };
 
-#endif //
+#endif

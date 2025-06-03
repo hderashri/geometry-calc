@@ -7,7 +7,7 @@
 
 class TriangleAreaCalculator : public IOperation {
 public:
-    void execute() override;
+    void execute();
     Vector calculateArea(const Triangle& triangle);
 };
 

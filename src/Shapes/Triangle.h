@@ -20,4 +20,4 @@ public:
     Point3D getP3() const;
 };
 
-#endif // TRIANGLE_H
+#endif

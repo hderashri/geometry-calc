@@ -43,5 +43,11 @@ int main() {
             std::cout << "Invalid shape selected. Please try again.\n";
     }
 
+    std::cout << "Enter the coordinate of a point (x y z): ";
+    Point3D point;
+    point.input();
+
+    
+
     return 0;
 }

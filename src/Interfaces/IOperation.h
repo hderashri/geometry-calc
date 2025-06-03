@@ -4,7 +4,6 @@
 class IOperation {
 public:
     virtual ~IOperation() = default;
-    virtual void execute() = 0;
 };
 
-#endif // IOPERATION_H
+#endif

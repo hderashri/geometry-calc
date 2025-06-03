@@ -8,4 +8,4 @@ public:
     virtual void print() const = 0;
 };
 
-#endif // ISHAPE_H
+#endif
