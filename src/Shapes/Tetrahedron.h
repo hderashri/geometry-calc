@@ -5,13 +5,13 @@
 #include "../DataTypes/Point3D.h"
 #include "../DataTypes/Vector.h"
 
-class Pyramid : public IShape {
+class Tetrahedron : public IShape {
 private:
     Point3D p1, p2, p3, p4;
 
 public:
-    Pyramid() = default;
-    Pyramid(const Point3D& point1, const Point3D& point2, const Point3D& point3, const Point3D& point4);
+    Tetrahedron() = default;
+    Tetrahedron(const Point3D& point1, const Point3D& point2, const Point3D& point3, const Point3D& point4);
 
     void input() override;
     void print() const override;

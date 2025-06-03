@@ -9,7 +9,7 @@ enum class ShapeType {
     Triangle,
     Sphere,
     Quadrilateral,
-    Pyramid,
+    Tetrahedron,
     Invalid
 };
 

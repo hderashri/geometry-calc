@@ -1,10 +1,10 @@
-#include "Pyramid.h"
+#include "Tetrahedron.h"
 #include <iostream>
 
-Pyramid::Pyramid(const Point3D& point1, const Point3D& point2, const Point3D& point3, const Point3D& point4)
+Tetrahedron::Tetrahedron(const Point3D& point1, const Point3D& point2, const Point3D& point3, const Point3D& point4)
     : p1(point1), p2(point2), p3(point3), p4(point4) {}
 
-void Pyramid::input() {
+void Tetrahedron::input() {
     std::cout << "Enter coordinates for Point 1:\n";
     p1.input();
     std::cout << "Enter coordinates for Point 2:\n";
@@ -15,8 +15,8 @@ void Pyramid::input() {
     p4.input();
 }
 
-void Pyramid::print() const {
-    std::cout << "Pyramid Points: ";
+void Tetrahedron::print() const {
+    std::cout << "Tetrahedron Points: ";
     p1.print();
     std::cout << ", ";
     p2.print();
@@ -27,7 +27,7 @@ void Pyramid::print() const {
     std::cout << std::endl;
 }
 
-Point3D Pyramid::getP1() const { return p1; }
-Point3D Pyramid::getP2() const { return p2; }
-Point3D Pyramid::getP3() const { return p3; }
-Point3D Pyramid::getP4() const { return p4; }
+Point3D Tetrahedron::getP1() const { return p1; }
+Point3D Tetrahedron::getP2() const { return p2; }
+Point3D Tetrahedron::getP3() const { return p3; }
+Point3D Tetrahedron::getP4() const { return p4; }

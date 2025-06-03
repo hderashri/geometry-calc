@@ -4,10 +4,10 @@
 #include "Operations/TriangleAreaCalculator.h"
 #include "Operations/SphereVolumeCalculator.h"
 #include "Operations/QuadrilateralAreaCalculator.h"
-#include "Operations/PyramidVolumeCalculator.h"
+#include "Operations/TetrahedronVolumeCalculator.h"
 
 int main() {
-    std::cout << "Select a shape (Point3D, Triangle, Quadrilateral, Sphere, Pyramid): ";
+    std::cout << "Select a shape (Point3D, Triangle, Quadrilateral, Sphere, Tetrahedron): ";
     std::string input;
     std::getline(std::cin, input);
 
@@ -34,9 +34,9 @@ int main() {
             quadrilateralAreaCalc.execute();
             break;
         }
-        case ShapeType::Pyramid: {
-            PyramidVolumeCalculator pyramidVolumeCalc;
-            pyramidVolumeCalc.execute();
+        case ShapeType::Tetrahedron: {
+            TetrahedronVolumeCalculator tetrahedronVolumeCalc;
+            tetrahedronVolumeCalc.execute();
             break;
         }
         default:
