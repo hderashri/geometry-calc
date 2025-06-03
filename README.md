@@ -1,69 +1,96 @@
-Geometry Calculator - Documentation
-📌 Overview
-The Geometry Calculator is a modular, object-oriented C++ application designed to perform geometric computations in 3D space. This includes calculating distances, areas, and more. The application is built with clean code principles, abstract interfaces, and a scalable architecture.
-📁 Project Structure
-Folder layout:
+# 🧼 Geometry Calculator App (C++)
 
+This is a modular, extensible Geometry Calculator built in C++ using Object-Oriented Programming (OOP) principles. It supports various shape-based computations such as distances and areas, and is designed to be easily extendable for future geometric operations.
+
+---
+
+## 📁 Project Structure
+
+```
 GeometryCalculator/
-└── src/
-    ├── Main.cpp
-    ├── Interfaces/
-    │   ├── IShape.h
-    │   └── IOperation.h
-    ├── Shapes/
-    │   ├── Point3D.h / .cpp
-    │   ├── Triangle.h / .cpp
-    │   ├── Circle.h / .cpp
-    ├── Operations/
-    │   ├── Point3DDistanceCalculator.h / .cpp
-    │   ├── AreaCalculator.h / .cpp
-    ├── Utils/
-    │   └── IOHelper.h / .cpp
+├── Main.cpp
+├── Shapes/
+│   ├── Point3D.cpp / .h
+│   ├── Triangle.cpp / .h
+│   └── Circle.cpp / .h
+├── Operations/
+│   ├── AreaCalculator.cpp / .h
+│   ├── Point3DDistanceCalculator.cpp / .h
+├── Utils/
+│   ├── IOHelper.cpp / .h
+├── Interfaces/
+│   ├── IShape.h
+│   └── IOperation.h
+├── DataTypes/
+│   └── (future custom types if needed)
+```
 
-🔧 Features
-- Calculate distance between two 3D points.
-- Calculate area of a triangle in 3D space using vector cross product.
-- Modular architecture using interfaces and abstraction.
-- Easily extendable to support new shapes and operations.
-🛠️ Build Instructions
-Prerequisites:
-- C++17 or newer
-- g++ or clang++
-- A Unix-like environment (macOS/Linux) or Windows with appropriate toolchain
-To build and run the application:
+---
 
-cd src/
-g++ -std=c++17 -I. Main.cpp Shapes/*.cpp Operations/*.cpp Utils/*.cpp -o GeometryApp
+## 🚀 Features
+
+* Calculate **distance** between two 3D points
+* Calculate **area** of a triangle in 3D space
+* **Interactive** CLI input/output
+* Easily **extendable** to new shapes and operations (like circles, rectangles, etc.)
+* Follows **SOLID OOP principles** (interfaces, abstraction, modularity)
+
+---
+
+## 🛠️ Build & Run
+
+### ✅ Prerequisites:
+
+* C++ compiler with C++17 support (e.g., `g++`)
+* Command line access (Linux, macOS, or WSL for Windows)
+
+### 🔧 Compile:
+
+```bash
+g++ -std=c++17 -I. Main.cpp Shapes/*.cpp Operations/*.cpp Utils/*.cpp Interfaces/*.cpp DataTypes/*.cpp -o GeometryApp
+```
+
+### ▶️ Run:
+
+```bash
 ./GeometryApp
+```
 
-✍️ Example Usage
+---
 
---- Geometry Calculator ---
+## 🧱 Design Highlights
 
-Select Operation:
-1. Calculate Distance Between Two Points
-2. Calculate Area of Triangle
+### 🔄 Interfaces
 
-> 1
+* `IShape` — Base interface for all shapes
+* `IOperation` — Base interface for all operations (distance, area, etc.)
 
-Enter coordinates for Point A:
-> 1 2 3
+### 🧹 Modular Structure
 
-Enter coordinates for Point B:
-> 4 5 6
+* Each shape (`Point3D`, `Triangle`, etc.) lives in its own file under `/Shapes`
+* Each operation has its own module under `/Operations`
 
-Distance between points: 5.196
+### 👨‍💻 Input Handling
 
-🚀 Extending the App
-To add a new shape:
-1. Create a new class in Shapes/, e.g., Sphere.h / .cpp.
-2. Implement required methods (input(), getters, etc.).
-To add a new operation:
-1. Create a new class in Operations/ that inherits from IOperation.
-2. Implement the execute() method with your logic.
-3. Update Main.cpp to add a menu option to trigger this operation.
-👨‍💻 Author
-Developed by [Your Name] as part of a modular and maintainable C++ OOP design study project.
-📄 License
-This project is open source and available under the MIT License.
-![image](https://github.com/user-attachments/assets/da8200e7-7172-4e23-9458-3d9c7914387c)
+* `IOHelper` encapsulates reusable input/output utilities
+
+---
+
+## ✨ Sample Features to Add in Future
+
+* Area of **multiple triangles**
+* Circle **area and circumference**
+* **Perimeter** and **volume** calculations
+* **Graphical UI** for visualizing shapes
+
+---
+
+## 📜 License
+
+This project is for educational and demonstration purposes. Feel free to fork and extend it.
+
+---
+
+## 🙇‍♂️ Author
+
+**Your Name** – [GitHub Profile](https://github.com/yourusername)
