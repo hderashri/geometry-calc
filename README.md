@@ -10,14 +10,14 @@ This is a modular, extensible Geometry Calculator built in C++ using Object-Orie
 GeometryCalculator/
 ├── Main.cpp
 ├── Shapes/
-│   ├── Pyramid.cpp / .h
+│   ├── Tetrahedron.cpp / .h
 │   ├── Quadrilateral.cpp / .h
 │   ├── Triangle.cpp / .h
 │   └── Sphere.cpp / .h
 ├── Operations/
 │   ├── TrianglrAreaCalculator.cpp / .h
 │   ├── Point3DDistanceCalculator.cpp / .h
-│   ├── PyramidVolumeCalculator.cpp / .h
+│   ├── TetrahedronVolumeCalculator.cpp / .h
 │   ├── QuadrilateralAreaCalculator.cpp / .h
 │   ├── SphereVolumeCalculator.cpp / .h
 ├── Utils/
