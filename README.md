@@ -10,29 +10,34 @@ This is a modular, extensible Geometry Calculator built in C++ using Object-Orie
 GeometryCalculator/
 ├── Main.cpp
 ├── Shapes/
-│   ├── Point3D.cpp / .h
+│   ├── Pyramid.cpp / .h
+│   ├── Quadrilateral.cpp / .h
 │   ├── Triangle.cpp / .h
-│   └── Circle.cpp / .h
+│   └── Sphere.cpp / .h
 ├── Operations/
-│   ├── AreaCalculator.cpp / .h
+│   ├── TrianglrAreaCalculator.cpp / .h
 │   ├── Point3DDistanceCalculator.cpp / .h
+│   ├── PyramidVolumeCalculator.cpp / .h
+│   ├── QuadrilateralAreaCalculator.cpp / .h
+│   ├── SphereVolumeCalculator.cpp / .h
 ├── Utils/
 │   ├── IOHelper.cpp / .h
+│   ├── ShapeSelector.cpp / .h
 ├── Interfaces/
 │   ├── IShape.h
 │   └── IOperation.h
 ├── DataTypes/
-│   └── (future custom types if needed)
+│   └── Point3D.cpp / .h
+    └── Vector.cpp / .h
 ```
 
 ---
 
 ## 🚀 Features
 
-* Calculate **distance** between two 3D points
-* Calculate **area** of a triangle in 3D space
+* **Calculate** geometric operations in 3D space
 * **Interactive** CLI input/output
-* Easily **extendable** to new shapes and operations (like circles, rectangles, etc.)
+* Easily **extendable** to new shapes and operations
 * Follows **SOLID OOP principles** (interfaces, abstraction, modularity)
 
 ---
@@ -47,7 +52,7 @@ GeometryCalculator/
 ### 🔧 Compile:
 
 ```bash
-g++ -std=c++17 -I. Main.cpp Shapes/*.cpp Operations/*.cpp Utils/*.cpp Interfaces/*.cpp DataTypes/*.cpp -o GeometryApp
+g++ -std=c++17 -I. Main.cpp Shapes/*.cpp Operations/*.cpp Utils/*.cpp DataTypes/*.cpp -o GeometryApp
 ```
 
 ### ▶️ Run:
@@ -63,11 +68,16 @@ g++ -std=c++17 -I. Main.cpp Shapes/*.cpp Operations/*.cpp Utils/*.cpp Interfaces
 ### 🔄 Interfaces
 
 * `IShape` — Base interface for all shapes
-* `IOperation` — Base interface for all operations (distance, area, etc.)
+* `IOperation` — Base interface for all operations
+
+### 📦 DataTypes
+
+* `Point3D` — Data type definition for 3D point
+* `Vector` — Data type definition for vector in 3D space
 
 ### 🧹 Modular Structure
 
-* Each shape (`Point3D`, `Triangle`, etc.) lives in its own file under `/Shapes`
+* Each shape lives in its own file under `/Shapes`
 * Each operation has its own module under `/Operations`
 
 ### 👨‍💻 Input Handling
@@ -78,9 +88,8 @@ g++ -std=c++17 -I. Main.cpp Shapes/*.cpp Operations/*.cpp Utils/*.cpp Interfaces
 
 ## ✨ Sample Features to Add in Future
 
-* Area of **multiple triangles**
-* Circle **area and circumference**
-* **Perimeter** and **volume** calculations
+* **Meshing** of given shapes
+* **Parellel Processing** for better efficiency
 * **Graphical UI** for visualizing shapes
 
 ---
@@ -93,4 +102,4 @@ This project is for educational and demonstration purposes. Feel free to fork an
 
 ## 🙇‍♂️ Author
 
-**Your Name** – [GitHub Profile](https://github.com/yourusername)
+**Harshit Derashree** – [GitHub Profile](https://github.com/hderashri)
