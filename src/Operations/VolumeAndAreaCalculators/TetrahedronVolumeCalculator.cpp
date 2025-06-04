@@ -22,11 +22,13 @@ double TetrahedronVolumeCalculator::calculateVolume(const Tetrahedron& tetrahedr
 }
 
 
-void TetrahedronVolumeCalculator::execute() {
+Tetrahedron TetrahedronVolumeCalculator::execute() {
     std::cout << "\n--- Tetrahedron Area Calculator ---\n";
     Tetrahedron tetrahedron;
     tetrahedron.input();
 
     auto volume = calculateVolume(tetrahedron);
     std::cout << "Volume of the tetrahedron is: " << volume << "\n";
+
+    return tetrahedron;
 }

@@ -7,7 +7,7 @@
 
 class TetrahedronVolumeCalculator : public IOperation {
 public:
-    void execute();
+    Tetrahedron execute();
     double calculateVolume(const Tetrahedron& tetrahedron);
 };
 

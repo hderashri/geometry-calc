@@ -17,7 +17,7 @@ double SphereVolumeCalculator::calculateVolume(const Sphere& Sphere) {
 
 }
 
-void SphereVolumeCalculator::execute() {
+Sphere SphereVolumeCalculator::execute() {
     std::cout << "\n--- Circle Area Calculator ---\n";
     Sphere sphere;
     sphere.input();
@@ -26,4 +26,6 @@ void SphereVolumeCalculator::execute() {
     double area = volume * 4 / 3 * 3.14;
     std::cout << "Volume of the circle is: " << volume << "\n";
     std::cout << "Area of the projected circle is: " << area << "\n";
+
+    return sphere;
 }

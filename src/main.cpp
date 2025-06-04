@@ -6,6 +6,9 @@
 #include "Operations/VolumeAndAreaCalculators/QuadrilateralAreaCalculator.h"
 #include "Operations/VolumeAndAreaCalculators/TetrahedronVolumeCalculator.h"
 #include "Operations/BaryCentriCoordinates/TriangleBaryCentricCoordinates.h"
+#include "Operations/BaryCentriCoordinates/SphereContainmentCheck.h"
+#include "Operations/BaryCentriCoordinates/TetrahedronContainmentCheck.h"
+#include "Operations/BaryCentriCoordinates/QuadrilateralContainmentCheck.h"
 #include <variant>
 
 int main() {
@@ -15,7 +18,7 @@ int main() {
 
     ShapeType shape = ShapeSelector::selectShape(input);
 
-    std::variant<std::monostate, Triangle, Point3D, Sphere, Quadrilateral> selectedShape; 
+    std::variant<std::monostate, Triangle, Tetrahedron, Sphere, Quadrilateral> selectedShape; 
 
     switch (shape) {
         case ShapeType::Point3D: {
@@ -30,17 +33,17 @@ int main() {
         }
         case ShapeType::Sphere: {
             SphereVolumeCalculator sphereVolumneCalc;
-            sphereVolumneCalc.execute();
+            selectedShape = sphereVolumneCalc.execute();
             break;
         }
         case ShapeType::Quadrilateral: {
             QuadrilateralAreaCalculator quadrilateralAreaCalc;
-            quadrilateralAreaCalc.execute();
+            selectedShape = quadrilateralAreaCalc.execute();
             break;
         }
         case ShapeType::Tetrahedron: {
             TetrahedronVolumeCalculator tetrahedronVolumeCalc;
-            tetrahedronVolumeCalc.execute();
+            selectedShape = tetrahedronVolumeCalc.execute();
             break;
         }
         default:
@@ -52,65 +55,54 @@ int main() {
     point.input();
 
     switch (shape) {
-            case ShapeType::Triangle: {
+        case ShapeType::Triangle: {
             if (std::holds_alternative<Triangle>(selectedShape)) {
                 Triangle triangle = std::get<Triangle>(selectedShape);
-                TriangleBaryCentricCoordinates barycentricChecker(triangle, point);
-                bool inside = barycentricChecker.barycentricCoordinates();
+                TriangleBaryCentricCoordinates checker(triangle, point);
+                bool inside = checker.barycentricCoordinates();
 
-                if (inside) {
-                    std::cout << "Point lies inside the triangle\n";
-                } else {
-                    std::cout << "Point lies outside the triangle\n";
-                }
+                std::cout << (inside ? "Point lies inside the triangle\n" : "Point lies outside the triangle\n");
             }
             break;
         }
-        case ShapeType::Sphere: {
-           if (std::holds_alternative<Triangle>(selectedShape)) {
-                Triangle triangle = std::get<Triangle>(selectedShape);
-                TriangleBaryCentricCoordinates barycentricChecker(triangle, point);
-                bool inside = barycentricChecker.barycentricCoordinates();
 
-                if (inside) {
-                    std::cout << "Point lies inside the triangle\n";
-                } else {
-                    std::cout << "Point lies outside the triangle\n";
-                }
-           }
-            break;
-        }
         case ShapeType::Quadrilateral: {
-           if (std::holds_alternative<Triangle>(selectedShape)) {
-                Triangle triangle = std::get<Triangle>(selectedShape);
-                TriangleBaryCentricCoordinates barycentricChecker(triangle, point);
-                bool inside = barycentricChecker.barycentricCoordinates();
+            if (std::holds_alternative<Quadrilateral>(selectedShape)) {
+                Quadrilateral quad = std::get<Quadrilateral>(selectedShape);
+                QuadrilateralContainmentCheck checker(quad, point);
+                bool inside = checker.isInside();
 
-                if (inside) {
-                    std::cout << "Point lies inside the triangle\n";
-                } else {
-                    std::cout << "Point lies outside the triangle\n";
-                }
-           }
-            break;
-        }
-        case ShapeType::Tetrahedron: {
-            if (std::holds_alternative<Triangle>(selectedShape)) {
-                Triangle triangle = std::get<Triangle>(selectedShape);
-                TriangleBaryCentricCoordinates barycentricChecker(triangle, point);
-                bool inside = barycentricChecker.barycentricCoordinates();
-
-                if (inside) {
-                    std::cout << "Point lies inside the triangle\n";
-                } else {
-                    std::cout << "Point lies outside the triangle\n";
-                }
+                std::cout << (inside ? "Point lies inside the quadrilateral\n" : "Point lies outside the quadrilateral\n");
             }
             break;
         }
+
+        case ShapeType::Tetrahedron: {
+            if (std::holds_alternative<Tetrahedron>(selectedShape)) {
+                Tetrahedron tetra = std::get<Tetrahedron>(selectedShape);
+                TetrahedronContainmentCheck checker(tetra, point);
+                bool inside = checker.isInside();
+
+                std::cout << (inside ? "Point lies inside the tetrahedron\n" : "Point lies outside the tetrahedron\n");
+            }
+            break;
+        }
+
+        case ShapeType::Sphere: {
+            if (std::holds_alternative<Sphere>(selectedShape)) {
+                Sphere sphere = std::get<Sphere>(selectedShape);
+                SphereContainmentCheck checker(sphere, point);
+                bool inside = checker.isInside();
+
+                std::cout << (inside ? "Point lies inside the sphere\n" : "Point lies outside the sphere\n");
+            }
+            break;
+        }
+
         default:
-            std::cout << "Invalid shape selected. Please try again.\n";
-    }    
+            std::cout << "Unsupported shape type for point containment check.\n";
+            break;
+    }
 
     return 0;
 }

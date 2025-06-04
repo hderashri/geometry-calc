@@ -47,7 +47,7 @@ Vector QuadrilateralAreaCalculator::calculateArea(const Quadrilateral& quadrilat
 }
 
 
-void QuadrilateralAreaCalculator::execute() {
+Quadrilateral QuadrilateralAreaCalculator::execute() {
     std::cout << "\n--- Quadrilateral Area Calculator ---\n";
     Quadrilateral quadrilateral;
     quadrilateral.input();
@@ -55,4 +55,6 @@ void QuadrilateralAreaCalculator::execute() {
     auto area = calculateArea(quadrilateral);
     std::cout << "Directional area of the quadrilateral is: " << "(" << area.getX() << ", " << area.getY() << ", " << area.getZ() << ")" "\n";
     std::cout << "Area magnitude of the quadrilateral is: " << area.magnitude(area) << "\n";
+
+    return quadrilateral;
 }

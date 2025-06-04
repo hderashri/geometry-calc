@@ -7,7 +7,7 @@
 
 class QuadrilateralAreaCalculator : public IOperation {
 public:
-    void execute();
+    Quadrilateral execute();
     Vector calculateArea(const Quadrilateral& quadrilateral);
 };
 
