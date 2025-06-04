@@ -1,5 +1,5 @@
 #include "Point3DDistanceCalculator.h"
-#include "../Utils/IOHelper.h"
+#include "../../Utils/IOHelper.h"
 #include <iostream>
 #include <cmath>
 

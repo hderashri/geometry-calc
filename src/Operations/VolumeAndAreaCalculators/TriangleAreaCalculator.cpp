@@ -1,6 +1,6 @@
 #include "TriangleAreaCalculator.h"
-#include "../Utils/IOHelper.h"
-#include "../DataTypes/Vector.h"
+#include "../../Utils/IOHelper.h"
+#include "../../DataTypes/Vector.h"
 #include <iostream>
 #include <cmath>
 
@@ -26,7 +26,7 @@ Vector TriangleAreaCalculator::calculateArea(const Triangle& triangle) {
 
 }
 
-void TriangleAreaCalculator::execute() {
+Triangle TriangleAreaCalculator::execute() {
     std::cout << "\n--- Triangle Area Calculator ---\n";
     Triangle triangle;
     triangle.input();
@@ -34,4 +34,6 @@ void TriangleAreaCalculator::execute() {
     Vector area = calculateArea(triangle);
     std::cout << "Directional area of the triangle is: " << "(" << area.getX() << ", " << area.getY() << ", " << area.getZ() << ")" "\n";
     std::cout << "Area magnitude of the triangle is: " << area.magnitude(area) << "\n";
+
+    return triangle;
 }

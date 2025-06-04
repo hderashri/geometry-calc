@@ -1,6 +1,6 @@
 #include "QuadrilateralAreaCalculator.h"
-#include "../Utils/IOHelper.h"
-#include "../DataTypes/Vector.h"
+#include "../../Utils/IOHelper.h"
+#include "../../DataTypes/Vector.h"
 #include <iostream>
 #include <cmath>
 

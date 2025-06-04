@@ -1,8 +1,8 @@
 #ifndef POINT3DDISTANCECALCULATOR_H
 #define POINT3DDISTANCECALCULATOR_H
 
-#include "../Interfaces/IOperation.h"
-#include "../DataTypes/Point3D.h"
+#include "../../Interfaces/IOperation.h"
+#include "../../DataTypes/Point3D.h"
 
 class Point3DDistanceCalculator : public IOperation {
 private:
